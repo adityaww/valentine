@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine?</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #ffe6eb;
+    }
+
+    .container {
+      position: relative;
+      width: 420px;
+      height: 420px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+    }
+
+    .photo {
+      width: 220px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    button {
+      position: absolute;
+      padding: 12px 26px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      left: 90px;
+      top: 300px;
+      transform-origin: center;
+    }
+
+    #no {
+      background: #888;
+      color: white;
+      left: 230px;
+      top: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Will you be my Valentine? 💖</h1>
+    <img
+        src="https://drive.google.com/file/d/1I2cnUDDiv1LcfnlWY0AFAeMOpzLQL7yV/view?usp=sharing"
+        class="photo"
+        alt="question's photo"
+    />
+
+
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <script>
+    const container = document.querySelector(".container");
+    const yesBtn = document.getElementById("yes");
+    const noBtn = document.getElementById("no");
+
+    let yesScale = 1;
+
+    // Center point of container
+    const centerX = container.offsetWidth / 2 - yesBtn.offsetWidth / 2;
+    const centerY = container.offsetHeight / 2 + 40;
+
+    noBtn.addEventListener("mouseenter", () => {
+      // Move NO randomly
+      const maxX = container.offsetWidth - noBtn.offsetWidth;
+      const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
+
+      // Increase YES size
+      if (yesScale < 2.8) {
+        yesScale += 0.15;
+      }
+
+      // Move YES closer to center each time
+      const currentX = yesBtn.offsetLeft;
+      const currentY = yesBtn.offsetTop;
+
+      const newX = currentX + (centerX - currentX) * 0.25;
+      const newY = currentY + (centerY - currentY) * 0.25;
+
+      yesBtn.style.left = newX + "px";
+      yesBtn.style.top = newY + "px";
+      yesBtn.style.transform = `scale(${yesScale})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yes_result.html";
+    });
+  </script>
+
+</body>
+</html>
