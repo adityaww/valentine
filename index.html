@@ -62,15 +62,9 @@
       color: white;
       left: 50%;
       top: 300px;
-      transform: translateX(-120%) scale(1);
+      transform: translateX(-60%) scale(1);
       transform-origin: center;
     }
-
-    /* #yes {
-      left: 50%;
-      top: 300px;
-      transform: translateX(-50%) scale(1);
-    } */
     
     #no {
       background: #888;
@@ -79,12 +73,6 @@
       top: 300px;
       transform: translateX(20%);
     }
-
-    /* #no {
-      left: 50%;
-      top: 300px;
-      transform: translateX(60%);
-    } */
 
   </style>
 </head>
@@ -124,13 +112,15 @@
       yesScale += 0.15;
     }
 
-    const currentX = yesBtn.offsetLeft;
-    const currentY = yesBtn.offsetTop;
+    /* move Yes button to the center */
+    
+    // const currentX = yesBtn.offsetLeft;
+    // const currentY = yesBtn.offsetTop;
 
-    yesBtn.style.left =
-      currentX + (centerX - currentX) * 0.25 + "px";
-    yesBtn.style.top =
-      currentY + (centerY - currentY) * 0.25 + "px";
+    // yesBtn.style.left =
+    //   currentX + (centerX - currentX) * 0.25 + "px";
+    // yesBtn.style.top =
+    //   currentY + (centerY - currentY) * 0.25 + "px";
 
     // yesBtn.style.transform = `scale(${yesScale})`;
     yesBtn.style.transform = `translateX(-50%) scale(${yesScale})`;
