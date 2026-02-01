@@ -26,6 +26,45 @@
       width: 300px;
       border-radius: 12px;
     }
+
+    
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 22px;
+      animation: floatUp linear forwards;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.8);
+        opacity: 0;
+    }
+    }
+
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      top: -10px;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+    }
+
   </style>
 </head>
 <body>
@@ -36,5 +75,75 @@
   <!-- Replace with any GIF you like -->
   <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTlhYW8wcW4wemNlMGQ1aHEzaDJ6cXc0ZWVoOWljYWVzZ2ZyaHBwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fPRwBcYd71Lox1v7p2/giphy.gif" alt="Happy GIF">
 
+  <iframe
+  id="bg-music"
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/k92Bgqz-p_8?autoplay=1&loop=1&playlist=k92Bgqz-p_8"
+  frameborder="0"
+  allow="autoplay"
+></iframe>
+
+
+<script>
+    const hearts = ["💖", "💕", "💘", "💗", "💞"];
+  
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+  
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+  
+      document.body.appendChild(heart);
+  
+      setTimeout(() => heart.remove(), 6000);
+    }
+  
+    setInterval(createHeart, 350);
+  </script>  
+
+<script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+  
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+  
+      document.body.appendChild(heart);
+  
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+  
+    setInterval(createHeart, 400);
+
+    function launchConfetti() {
+        for (let i = 0; i < 80; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor =
+            ["#ff4d6d", "#ffd166", "#ff9aa2", "#cdb4db"][
+            Math.floor(Math.random() * 4)
+            ];
+        confetti.style.animationDuration = 2 + Math.random() * 2 + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 4000);
+        }
+    }
+
+    window.addEventListener("load", launchConfetti);
+
+  </script>  
 </body>
 </html>
