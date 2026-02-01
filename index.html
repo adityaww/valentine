@@ -6,8 +6,9 @@
 
   <style>
     body {
-      height: 100vh;
       margin: 0;
+      /* min-height: 100vh; */
+      min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,6 +38,16 @@
       h1 {
         font-size: 22px;
         white-space: normal;   /* allow wrapping on small screens */
+      }
+      
+      .container {
+        height: auto;
+        padding-bottom: 40px;
+      }
+    
+      #yes,
+      #no {
+        top: 260px;
       }
     }
 
