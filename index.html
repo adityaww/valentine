@@ -60,17 +60,32 @@
     #yes {
       background: #ff4d6d;
       color: white;
-      left: 90px;
+      left: 50%;
       top: 300px;
+      transform: translateX(-120%) scale(1);
       transform-origin: center;
     }
 
+    /* #yes {
+      left: 50%;
+      top: 300px;
+      transform: translateX(-50%) scale(1);
+    } */
+    
     #no {
       background: #888;
       color: white;
-      left: 230px;
+      left: 50%;
       top: 300px;
+      transform: translateX(20%);
     }
+
+    /* #no {
+      left: 50%;
+      top: 300px;
+      transform: translateX(60%);
+    } */
+
   </style>
 </head>
 <body>
@@ -117,7 +132,9 @@
     yesBtn.style.top =
       currentY + (centerY - currentY) * 0.25 + "px";
 
-    yesBtn.style.transform = `scale(${yesScale})`;
+    // yesBtn.style.transform = `scale(${yesScale})`;
+    yesBtn.style.transform = `translateX(-50%) scale(${yesScale})`;
+
   }
 
   // Desktop
