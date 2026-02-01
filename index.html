@@ -45,6 +45,7 @@
       border-radius: 16px;
       margin-bottom: 30px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      z-index: 2;
     }
 
     button {
@@ -55,6 +56,7 @@
       border-radius: 10px;
       cursor: pointer;
       transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
+      z-index: 1;
     }
 
     #yes {
@@ -72,6 +74,7 @@
       left: 50%;
       top: 300px;
       transform: translateX(20%); /* push right */
+      z-index: 5; /* ABOVE image & text */
     }
 
   </style>
@@ -103,7 +106,8 @@
 
   function dodgeNoButton() {
     const maxX = container.offsetWidth - noBtn.offsetWidth;
-    const maxY = container.offsetHeight - noBtn.offsetHeight;
+    // const maxY = container.offsetHeight - noBtn.offsetHeight;
+    const maxY = container.offsetHeight - noBtn.offsetHeight - 80;
 
     noBtn.style.left = Math.random() * maxX + "px";
     noBtn.style.top = Math.random() * maxY + "px";
