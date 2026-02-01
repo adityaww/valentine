@@ -62,7 +62,7 @@
       color: white;
       left: 50%;
       top: 300px;
-      transform: translateX(-60%) scale(1);
+      transform: translateX(-120%) scale(1); /* push left */
       transform-origin: center;
     }
     
@@ -71,7 +71,7 @@
       color: white;
       left: 50%;
       top: 300px;
-      transform: translateX(20%);
+      transform: translateX(20%); /* push right */
     }
 
   </style>
@@ -112,18 +112,7 @@
       yesScale += 0.15;
     }
 
-    /* move Yes button to the center */
-    
-    // const currentX = yesBtn.offsetLeft;
-    // const currentY = yesBtn.offsetTop;
-
-    // yesBtn.style.left =
-    //   currentX + (centerX - currentX) * 0.25 + "px";
-    // yesBtn.style.top =
-    //   currentY + (centerY - currentY) * 0.25 + "px";
-
-    // yesBtn.style.transform = `scale(${yesScale})`;
-    yesBtn.style.transform = `translateX(-50%) scale(${yesScale})`;
+    yesBtn.style.transform = `translateX(-120%) scale(${yesScale})`;
 
   }
 
